@@ -16,3 +16,27 @@ https://blog.csdn.net/weixin_44949135/article/details/108228625
  }
  //这里需要首先进行x与y的规范判断，这样可以避免上述记录的错误产生。
 ```
+## 迷宫
+正确答案 
+```
+DDDDRRURRRRRRDRRRRDDDLDDRDDDDDDDDDDDDRDDRRRUUURRRRDDDDRDRRRRRURRRDRRDDDRRRRUURUUUUUUUULLLUUUURRRRUULLLUUUULLUUULUURRURRURURRRDDRRRRRDDRRDDLLLDDRRDDRDDLDDDLLDDLLLDLDDDLDDRRRRRRRRRDDDDDDRR
+DDDDRRURRRRRRDRRRRDDDLDDRDDDDDDDDDDDDRDDRRRURRUURRDDDDRDRRRRRRDRRURRDDDRRRRUURUUUUUUULULLUUUURRRRUULLLUUUULLUUULUURRURRURURRRDDRRRRRDDRRDDLLLDDRRDDRDDLDDDLLDDLLLDLDDDLDDRRRRRRRRRDDDDDDRR
+```
+## 单词分析
+单词分析的代码里面有一个很巧妙的设计。设计了一个数组num用于存放次数。但是这个代码还可以存储次数所对应的字符。
+整个分析如下：
+1. 存放次数的解决：
+
+   - 通过一个数组来搞定
+
+     ```java
+     nums[charArray[i] - 'a']+=1;
+     ```
+
+     将输入的字符串使用String类的toArray()方法将其转化为字符数组。nums[]数组用于存放单个字符的统计次数。如果charArray[i]为a，那么就是在nums数组的第一个位置进行操作。如果charArray[i]是c的话，就在第三个位置进行操作。这样的设计的妙处在于，不管charArray中的内容是什么，只要通过-'a'的操作，那么都可以实现在nums[]数组的对应位置进行操作。并且不管重复字符是否是联系的。而且保留了前面对于同一个位置操作的记录。
+
+2. 将下标还原成对应的字符。
+
+   - 通过读取下标i，然后再进行+1的操作；那么自然就将下标还原成了对应的字符。
+
+整个单词分析的思路非常的妙！！
