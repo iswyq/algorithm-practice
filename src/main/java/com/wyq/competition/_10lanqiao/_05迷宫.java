@@ -18,13 +18,13 @@ public class _05迷宫 {
         int[][] step = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         String[] stepArr = {"U", "D", "L", "R"};
         // 用于记录是否被访问过的数组
-        int[][] visited = new int[row][column];
+        int[][] visit = new int[row][column];
         StringBuffer sb = new StringBuffer();//用于记录路径的字符船
         Stack<Node> stack = new Stack<>();//用于路径回溯
         // 放置队列 需要使用单向链表
         Deque<Node> queue = new LinkedList<>();
         // 新建初始化节点
-        Node node = new Node(0, 0, -1, 0, -1, null);
+        Node node = new Node(0, 0, -1, 0, 0, null);
         // 节点入队
         queue.offer(node);
     	/*只要这个队列中还有元素，那么就while循环会一直执行
@@ -45,7 +45,7 @@ public class _05迷宫 {
     			*/
                 // 所有的位置遍历结束，对队列中的后续node进行遍历。此时队列是只出不进的状态
                 // 在这里是有逻辑错误的，但是很奇怪为什么他们的不报错。
-                if (x == row - 1 && y == column - 1 && arr[x][y] == 0 && visited[x][y] == 0) {
+                if (x == row - 1 && y == column - 1 && arr[x][y] == 0 && visit[x][y] == 0) {
                     // 打印路径 包含队列中的node和栈中的node
 					/*队列与栈中的元素转换过程：
 						队列中的每一个元素出队进入到栈中。那么只要从栈中获取元素即可
@@ -76,14 +76,14 @@ public class _05迷宫 {
                 }
                 // 继续bfs
                 // 真的就是学到了，如果将x，y与0的大小判断的逻辑放在前面，如果不符合要求，那么后面对数组的条件判断就不会生效，这样不会触发IndexOutOfBoundsException这个运行时异常
-                if (x >= 0 && x < row && y >= 0 && y < column && arr[x][y] == 0 && visited[x][y] == 0) {//条件：没有到最后一行、列；前面没有障碍物、下一个位置没有被访问过
+                if (x >= 0 && x < row && y >= 0 && y < column && arr[x][y] == 0 && visit[x][y] == 0) {//条件：没有到最后一行、列；前面没有障碍物、下一个位置没有被访问过
                     /*当没有到达最后的一个位置的时候，且当前点向下一个点进行走是符合要求的，那么下一个点的Node加入队列*/
-                    visited[x][y] = 1;//表示这个点已经访问过了
+                    visit[x][y] = 1;//表示这个点已经访问过了
                     node = new Node(x, y, head.x, head.y, head.step + 1, d);
                     // node入队
                     queue.offer(node);
                 }
-                System.out.println("");
+                // System.out.println("");
             }
         }
         return null;
@@ -129,7 +129,7 @@ public class _05迷宫 {
                 for (int j = 0; j < 50; j++) {
                     // String s = scanner.nextLine();
                     // 需要通过这样的操作，将字符转换成数字
-                    arr[i][j] = s.charAt(i * 30 + j) - '0';
+                    arr[i][j] = s.charAt(i * 50 + j) - '0';
                 }
             }
             // 进行bfs

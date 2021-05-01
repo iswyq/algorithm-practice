@@ -99,7 +99,7 @@ public class _05_1迷宫 {
                     Node newNode = new Node(x, y, head.x, head.y, head.step + 1, d);
                     queue.offer(newNode);
                 }
-                System.out.println("");
+                // System.out.println("");
             }
         }
         return null;
