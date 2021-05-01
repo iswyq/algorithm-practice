@@ -40,3 +40,5 @@ DDDDRRURRRRRRDRRRRDDDLDDRDDDDDDDDDDDDRDDRRRURRUURRDDDDRDRRRRRRDRRURRDDDRRRRUURUU
    - 通过读取下标i，然后再进行+1的操作；那么自然就将下标还原成了对应的字符。
 
 整个单词分析的思路非常的妙！！
+在成绩分析中涉及到了一个对于字符串的规范打印。可以使用String.format("%.2f")用以指定只有最后只保留两位小数。
+在字符串分值和中，暂时还不明白为什么能够在不求解子串的情况下可以将他们子串的不同字符数给出来。暂时先记下来。

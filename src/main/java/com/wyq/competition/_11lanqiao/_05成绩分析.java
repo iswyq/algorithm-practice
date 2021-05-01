@@ -58,5 +58,6 @@ public class _05成绩分析 {
         DecimalFormat df = new DecimalFormat("#.00");
         String s = df.format(sum / N);
         System.out.println(s);
+    //    字符串的规范打印String.format("%.2f")
     }
 }
