@@ -6,7 +6,7 @@ package com.wyq.competition._11lanqiao;
  * @author: Mr.Wang
  * @create: 2021-04-29 13:41
  **/
-public class _01门牌制作 {
+public class _02_门牌制作 {
     /*
     * 小蓝制作门牌的方法是先制作0 到9 这几个数字字符，最后根据需要将字
       符粘贴到门牌上，例如门牌1017 需要依次粘贴字符1、0、1、7，即需要1 个

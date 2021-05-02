@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author: Mr.Wang
  * @create: 2021-05-01 15:40
  **/
-public class _09_I字符串分值和 {
+public class _02_I字符串分值和 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String string = sc.next();

@@ -6,7 +6,7 @@ package com.wyq.competition._11lanqiao;
  * @author: Mr.Wang
  * @create: 2021-04-29 20:41
  **/
-public class _04排序 {
+public class _02_排序 {
     /*
      *使用冒泡排序，求一个字符串使得对一个字符串排序的交换次数为10次
      * lan需要交换一次

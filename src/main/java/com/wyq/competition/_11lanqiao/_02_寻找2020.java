@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author: Mr.Wang
  * @create: 2021-04-29 14:04
  **/
-public class _02寻找2020 {
+public class _02_寻找2020 {
     private static int f(int[][] arr) {
         /*
          * 获得的一个二维数组，分别向左，向下，向右下找；使用三个循环。

@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author: Mr.Wang
  * @create: 2021-04-29 15:52
  **/
-public class _021寻找2020 {
+public class _021_寻找2020 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int[][] num = new int[301][301];

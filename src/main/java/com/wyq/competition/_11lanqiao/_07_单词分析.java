@@ -9,7 +9,7 @@ import java.util.Scanner;
  * @author: Mr.Wang
  * @create: 2021-04-29 21:11
  **/
-public class _07单词分析 {
+public class _07_单词分析 {
     /*
     * 之前是自己进行代码逻辑的构建，但是存在很多问题。比如不能进行出现次数相同的统计
     * 故从别人的代码中进行借鉴

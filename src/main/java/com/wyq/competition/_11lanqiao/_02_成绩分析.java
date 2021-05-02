@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @author: Mr.Wang
  * @create: 2021-04-29 20:48
  **/
-public class _05成绩分析 {
+public class _02_成绩分析 {
     /*
     * 输入从0到100的整数作为成绩，计算最高分，最低分，平均成绩
     * 样例输入：
