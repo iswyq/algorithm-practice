@@ -6,7 +6,7 @@ package com.wyq.elementary._09_Linear.list;
  * @author: Mr.Wang
  * @create: 2021-04-29 12:56
  **/
-public class SingleLinkedList implements MyList {
+public class SingleLinkedList1 implements MyList {
     /*
      * 通常first是保持不变的
      * */

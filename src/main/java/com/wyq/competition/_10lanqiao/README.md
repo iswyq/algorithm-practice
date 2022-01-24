@@ -2,7 +2,7 @@
 
 [第十届蓝桥杯答案](https://blog.csdn.net/weixin_44949135/article/details/108150820)
 ## 官方真题
-[真题]https://www.lanqiao.cn/courses/2786/learning/?id=70876
+[真题]https://www.lanqiao.cn/courses/2786/learning/?no=70876
 
 subString的最大索引可以达到字符串的长度。如下面代码是可以通过编译的:
 
