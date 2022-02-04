@@ -2,6 +2,12 @@ package com.wyq.stack;
 
 /**
  * 使用栈实现计算器V1.0  只能实现一位数的计算
+ * V2.0 完成多位数的计算
+ *      修改逻辑：
+ *          如果当前位置是数字时，则需要向后再看一位，
+ *              1.如果后一位是操作符，则直接进行入栈
+ *              2.如果是数字，那么还需要将其进行拼接  使用字符串拼接，然后使用Integer的方法转换为数字
+ *          注意：索引越界  如果当前已经达到了expression的最后一位，则直接入栈
  */
 public class Calculator {
     public static void main(String[] args) {
@@ -10,7 +16,7 @@ public class Calculator {
         //符号栈
         Arraystack2 operStack = new Arraystack2(10);
         //待运算的表达式
-        String expression = "7+2*5-3";
+        String expression = "70+20*6-3";
         //指向的索引
         int index = 0;
         //两个数值
@@ -20,6 +26,7 @@ public class Calculator {
         char ch;
         int oper;//存放符号栈弹出元素
         int res = 0;//运算结果
+        String keepNum = "";//保存数值字符串
         //完成了* /的运算
         while (true) {
             //获得字符
@@ -59,7 +66,22 @@ public class Calculator {
                 }
             } else {
                 //当前是数值，直接入数值栈
-                numberStack.push(ch - '0');
+                keepNum += ch;
+                //如果当前index已经指向了expression的最后一位，则直接入栈  同时也解决了索引越界
+                if (index == expression.length() - 1) {
+                    //已经达到了最后一位
+                    numberStack.push(Integer.parseInt(keepNum));
+                } else {
+                    //如果当前的位置是数值，则向后面看一位；如果是操作符，则直接进行入栈，否则进行拼接
+                    //使用子字符串就是开始位置就是 index+1
+                    if (operStack.isOper(expression.substring(index + 1, index + 2).charAt(0))) {
+                        //是操作符
+                        //将数值字符串转换为数字
+                        numberStack.push(Integer.parseInt(keepNum));
+                        //清空字符串
+                        keepNum = "";
+                    }
+                }
             }
             index++;
             //index指向到了表达式的最后  也有效防止了索引越界
