@@ -9,12 +9,13 @@ public class ShellSort {
     public static void main(String[] args) {
         int arr[] = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
         shellSort(arr);
+        System.out.println("排序结果");
         System.out.println(Arrays.toString(arr));
     }
 
     private static void shellSort(int[] arr) {
         int temp;//定义临时变量
-
+        int count = 0;
         /*
          * 完整动作
          * 一层循环用于控制步长变化
@@ -33,6 +34,9 @@ public class ShellSort {
                     }
                 }
             }
+
+            System.out.printf("第%d排序后的结果\n", ++count);
+            System.out.println(Arrays.toString(arr));
         }
 
 
@@ -78,5 +82,12 @@ public class ShellSort {
                 }
             }
         }*/
+    }
+
+    //对希尔排序进行优化  将交换式改为移动式
+    private static void shellSort2(int[] arr) {
+        for (int gap = arr.length/2; gap > 0; gap /= 2) {
+
+        }
     }
 }
