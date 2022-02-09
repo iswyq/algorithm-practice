@@ -66,5 +66,6 @@ public class Queue8 {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
+
     }
 }
