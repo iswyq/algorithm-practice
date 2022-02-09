@@ -1,16 +1,40 @@
 package com.wyq.sort;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * 希尔排序
  */
 public class ShellSort {
+    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
-        int arr[] = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
-        shellSort(arr);
-        System.out.println("排序结果");
-        System.out.println(Arrays.toString(arr));
+//        int[] arr = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
+        int[] arr = new int[80000];
+        /*
+         * 添加随机数组 80000个数据
+         * */
+        for (int i = 0; i < 80000; i++) {
+            arr[i] = (int) (Math.random() * 80000);
+        }
+
+        /*
+         * 程序执行时间测试
+         * */
+        Date before = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String beforeTime = simpleDateFormat.format(before);
+        //进行排序
+        shellSort2(arr);
+        Date after = new Date();
+        String afterTime = simpleDateFormat.format(after);
+        //打印程序执行时间
+        System.out.println(beforeTime);
+        System.out.println(afterTime);
+
+//        System.out.println("排序结果");
+//        System.out.println(Arrays.toString(arr));
     }
 
     private static void shellSort(int[] arr) {
@@ -35,8 +59,8 @@ public class ShellSort {
                 }
             }
 
-            System.out.printf("第%d排序后的结果\n", ++count);
-            System.out.println(Arrays.toString(arr));
+//            System.out.printf("第%d排序后的结果\n", ++count);
+//            System.out.println(Arrays.toString(arr));
         }
 
 
@@ -86,8 +110,23 @@ public class ShellSort {
 
     //对希尔排序进行优化  将交换式改为移动式
     private static void shellSort2(int[] arr) {
-        for (int gap = arr.length/2; gap > 0; gap /= 2) {
-
+        for (int gap = arr.length / 2; gap > 0; gap /= 2) {
+            //从第gap个元素开始，逐个对其所在的组进行插入排序
+            for (int i = gap; i < arr.length; i++) {
+                //使用j进行移动
+                int j = i;
+                int temp = arr[j];
+                //这里if不能省  如果分组本来就是有序的，那么通过该if可以直接
+                if (arr[j] < arr[j - gap]) {
+                    //寻找到合适插入的位置
+                    while (j - gap >= 0 && temp < arr[j - gap]) {
+                        arr[j] = arr[j - gap];
+                        j -= gap;
+                    }
+                    //当退出while循环时候，就会找到合适的插入位置
+                    arr[j] = temp;
+                }
+            }
         }
     }
 }
